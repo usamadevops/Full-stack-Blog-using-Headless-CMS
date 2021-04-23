@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "POST",
+  "info": {
+    "name": "POST",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "p_image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "p_caption": {
+      "type": "richtext",
+      "required": true
+    },
+    "p_likes": {
+      "required": false,
+      "type": "integer"
+    },
+    "p_author": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "posts"
+    },
+    "p_url": {
+      "type": "string"
+    },
+    "comments": {
+      "collection": "comment"
+    }
+  }
+}
