@@ -11,8 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <link rel="stylesheet" href="./css/style.css" type="text/css">
     <!-- Include Handlebars from a CDN -->
+    <script type="module"  src="./js/main.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-    <script src="./js/main.js" type=module defer></script>
   </head>
   <body>
 
@@ -26,10 +26,10 @@
       <div class="FlowTow_header__nav">
       <nav>
           <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#!/all-posts">All Posts</a></li>
-              <li><a href="#!/my-posts">My Posts</a></li>
-              <li><a href="#whatis">About</a></li>
+              <li><a id="Home" href="#">Home</a></li>
+              <li><a id="All_posts" href="#!/all-posts">All Posts</a></li>
+              <li><a id="MY_posts" href="#!/my-posts">My Posts</a></li>
+              <li><a id="About" href="#whatis">About</a></li>
           </ul>
       </nav>
     </div>
@@ -46,7 +46,7 @@
         <div class="form">
           <input type="text" placeholder="Enter Username" name="uname" required>
           <input type="password" placeholder="Enter Password" name="psw" required>
-          <button type="submit">Login</button>
+          <button type="submit" id="login">Login</button>
         </div>
            <!-- Grid 2 for Top Text -->
           <hgroup>
@@ -58,12 +58,14 @@
             <div class="card1__captions">
               <caption>Ut eum atque. Voluptatem repellendus et delectus velit fugit aliquid consequuntur. In vitae sequi doloribus dolorum.  </caption>
               <span class="card__content"><h4>By Usama </h4>
-             <span> <button type="button">Like</button>
-  <var>6543</var></span>  
+             <span> <button type="submit" id="like">Like</button>
+  <var id="likes">6543</var></span>  
               </span>
                
             </div>
+            
           </div>
+
           <div class="card2">
             <img src="./images/image.jpg" alt="Avatar" style="width:100%">
             <div class="card1__captions">
@@ -349,6 +351,6 @@
 
 
   <!-- Templates -->
+  <script src="./js/main.js"  defer ></script>
   </body>
-
 </html>

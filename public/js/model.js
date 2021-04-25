@@ -1,4 +1,4 @@
-export {Model};
+export { Model, Function };
 /*
  *
  * Module: <name>
@@ -19,12 +19,15 @@ export {Model};
  *   "likeAdded" event when a request to add a new like returns
  *   "commentAdded" event when a request to add a new comment returns 
 */
+function Function(n){
+    return n * n;
+}
 
 const Model = {
-    postsUrl: '/posts', 
-    uploadUrl: '/upload',  
+    postsUrl: '/posts',
+    uploadUrl: '/upload',
     commentsUrl: '/comments',
-    
+
     //this will hold the post data stored in the model
     data: {
         posts: []
@@ -32,35 +35,48 @@ const Model = {
 
     // updatePosts - retrieve the latest list of posts from the server API
     // when the request is resolved, creates a "modelUpdated" event 
-    updatePosts: function() {
+    updatePosts: function () {
 
     },
 
     // getPosts - return an array of post objects
-    getPosts: function() {
+    getPosts: async function () {
         //before that you may need to sort the posts by their timestamp
+
+
+        let URL = 'http://localhost:1337/posts';
+        let request = new XMLHttpRequest();
+        request.open('GET', URL);
+        request.responseType = 'json';
+        request.send();
+        request.onload = function () {
+            const Posts=request.response;
+Push(Posts);
+        }
+
         return this.data.posts;
+        
+        
     },
 
     // getPost - return a single post given its id
-    getPost: function(postid) {
-
+    getPost: function (postid) {
     },
 
-    setPosts: function(posts) {
+    setPosts: function (posts) {
         this.data.posts = posts;
     },
 
     // addPost - add a new post by submitting a POST request to the server API
     // postData is an object containing all fields in the post object (e.g., p_caption)
     // when the request is resolved, creates an "postAdded" event
-    addPost: function(postData) {
+    addPost: function (postData) {
 
     },
 
     // getUserPosts - return just the posts for one user as an array
-    getUserPosts: function(userid) {
-        
+    getUserPosts: function (userid) {
+
     },
 
     // addLike - increase the number of likes by 1 
@@ -68,7 +84,7 @@ const Model = {
     //      postId - is the id of the post
     // when the request is resolved, creates an "likeAdded" event
     addLike: function (postId) {
-        
+
     },
 
     // addComment - add a comment to a post 
@@ -76,24 +92,28 @@ const Model = {
     //      commentData is an object containing the content of the comment, the author and the postid
     // when the request is resolved, creates an "commentAdded" event
     addComment: function (commentData) {
-        
+
     },
 
     //getRandomPosts - return N random posts as an array
-    getRandomPosts: function(N){
-        
+    getRandomPosts: function (N) {
+        let URL = 'http://localhost:1337/posts';
+        let request = new XMLHttpRequest();
+        request.open('GET', URL);
+        request.responseType = 'json';
+        request.send();
     },
 
     // getRecentPosts - return the N most recent as an array
     //  posts, ordered by timestamp, most recent first
-    getRecentPosts: function(N) {
-        
+    getRecentPosts: function (N) {
+
     },
 
     // getPopularPosts - return the N most popular as an array
     // posts, ordered by the number of likes
-    getPopularPosts: function(N) {
-       
+    getPopularPosts: function (N) {
+
     },
 
 }

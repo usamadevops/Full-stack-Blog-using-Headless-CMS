@@ -7,29 +7,24 @@
  * Student Number:
  *
  */
-import  { Model } from './model'
 
-Model.addComment()
-
+import {Model,Function} from './model.js';
 
 
-function redraw() { 
 
-    let content = "<h2>API Test</h2><ul>";
-    content += "<li><a href='/#'>Three Posts</a></li>";
-    content += "<li><a href='/#'>Recent Posts</a></li>";
-    content += "<li><a href='/#'>Popular Posts</a></li>";
-    content += "<li><a href='/posts/1'>A Single Post</a></li>"; 
-    content += "</ul>";
+``
+async function redraw() { 
 
-    // update the page
-    document.getElementById("target").innerHTML = content;
-}adad
+console.log(Model.getPosts());
+
+console.log(Function(5));
+
+}
 
 window.onload = function() {
+    // document.querySelector('caption').innerText="Hello World"
     redraw();
+
 };
-
-
 
 
